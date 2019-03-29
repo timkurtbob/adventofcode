@@ -22,7 +22,7 @@ def distance(i)
 
   i.each do  |e|
     td = e[0]           # direction to turn to
-    dis = e[1].to_i     # distance to go
+    dis = calc_dis(e)   # distance to go
 
     f = new_dir(f, td)
 
@@ -36,6 +36,17 @@ def distance(i)
 
   p dis_comb(dx, dy)
 
+end
+
+def calc_dis(e)
+  l = e.length
+  s = ''
+  c = 1
+  while c < l do
+    s.insert(-1, e[c])
+    c += 1
+  end
+  return s.to_i
 end
 
 
@@ -82,36 +93,3 @@ distance(t3)
 
 p 'input array'
 distance(input)
-
-## CHECK FOR new_dir METHOD
-
-# s = 'South'
-# n = 'North'
-# w = 'West'
-# e = 'East'
-
-# p 'check direction'
-# p n
-# p new_dir('E', 'L')
-
-# p s
-# p new_dir('E', 'R')
-
-# p n
-# p new_dir('W', 'R')
-
-# p s
-# p new_dir('W', 'L')
-
-# p w
-# p new_dir('N', 'L')
-
-# p e
-# p new_dir('N', 'R')
-
-# p w
-# p new_dir('S', 'R')
-
-# p e
-# p new_dir('S', 'L')
-
